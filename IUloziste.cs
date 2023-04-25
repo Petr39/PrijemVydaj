@@ -6,15 +6,11 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    internal interface IPenize
+    internal interface IUloziste
     {
-        string [] VytvorVydajZaklad();
-        void Vydaj();
-        DateTime Datum();
-
-        void VypisData();
 
 
-
+        void UlozData(string[] seznamKUlozeni);
+        void PrepisData();
     }
 }

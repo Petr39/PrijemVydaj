@@ -30,7 +30,7 @@ namespace ConsoleApp1
             return DatumOperace;
         }
 
-        public virtual void Prijem()
+        public virtual string [] VytvorVydajZaklad()
         {
             Console.WriteLine("Zadej název výdaje: ");
             string nazev = Console.ReadLine();
@@ -39,6 +39,10 @@ namespace ConsoleApp1
             Komentar = nazev;
             Castka = prijem;
             Console.WriteLine("Zadáno");
+
+            string[] dataVydaje=new string [] {nazev, prijem.ToString()};
+
+            return dataVydaje;
         }
 
         public virtual void Vydaj()

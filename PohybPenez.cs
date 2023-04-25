@@ -20,15 +20,20 @@ namespace ConsoleApp1
 
         public PohybPenez() { }
 
-        public override void Prijem()
-        {
-            base.Prijem();
-            pohybPenez.Add(new PohybPenez(base.Komentar,base.Castka));
 
-           
+        /// <summary>
+        /// Metoda zapíše výdaj
+        /// </summary>
+        public override string [] VytvorVydajZaklad()
+        {  
+            var a=  base.VytvorVydajZaklad();
+            pohybPenez.Add(new PohybPenez(base.Komentar,base.Castka));
+            return a;
         }
 
-
+        /// <summary>
+        /// Metoda zapíše výdaj 
+        /// </summary>
         public override void Vydaj()
         { 
             base.Vydaj();
@@ -36,9 +41,15 @@ namespace ConsoleApp1
 
         }
 
+
+        /// <summary>
+        /// Vypíše data v z této třídy
+        /// </summary>
         public override void VypisData()
         {
-            var pen = pohybPenez.Sum(x=>x.Castka);
+
+            //Celkem peněz k doplacení
+            var penizeCelkem = pohybPenez.Sum(x=>x.Castka);
 
 
             foreach (var item in pohybPenez)
@@ -49,11 +60,16 @@ namespace ConsoleApp1
             }
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Celkem zaplatit: {0:F} Kč,-",pen);
+            Console.WriteLine("Celkem zaplatit: {0:F} Kč,-",penizeCelkem);
             Console.ResetColor();
             Console.ReadKey();
         }
 
+
+        /// <summary>
+        /// Přepsání do čitelné podoby
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return "Koment: " +Komentar+" " +Castka; 
